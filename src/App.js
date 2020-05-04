@@ -1,24 +1,24 @@
 import React, {Component} from 'react';
-import Radium, { StyleRoot } from 'radium';
+// import Radium, { StyleRoot } from 'radium';
 import styled from 'styled-components';
 import './App.css';
 import Person from './Components/Person/Person';
 import './Components/Person/style.css';
 
 const StyledButton = styled.button`
-  background-color: #a83c32,
-  color: #fff,
-  font-size: 18px,
-  padding: 8px 20px,
-  border-radius: 5px,
-  border: none,
-  :hover: {
-    background-color: green,
-    color: yellow
-  },
-  :focus: {
-    outline: none
-  },`;
+  background-color: ${Props => Props.buttonAlt ? '#edcdca' : '#a83c32'};
+  color: ${Props => Props.buttonAlt ? '#000' : '#fff'};
+  font-size: 18px;
+  padding: 8px 20px;
+  border-radius: 5px;
+  border: none;
+  &:hover {
+    background-color: ${Props => Props.buttonAlt ? 'red' : 'green'};
+    color: ${Props => Props.buttonAlt ? 'white' : 'yellow'};
+  }
+  &:focus {
+    outline: none;
+  }`;
 
 
 class App extends Component {
@@ -129,7 +129,7 @@ class App extends Component {
     }
 
     return (
-      <StyleRoot>
+      <div>
         <div className="app">
           <h1>Hi, I am React App</h1>
           <p>This is great!!!</p>
@@ -155,9 +155,9 @@ class App extends Component {
                   )
           })}
         </div>
-      </StyleRoot>
+      </div>
     );
   }
 }
 
-export default Radium(App);
+export default App;
